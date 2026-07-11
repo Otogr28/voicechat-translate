@@ -1,0 +1,11 @@
+{
+  "key.categories.voicetrans": "Voice Translate",
+  "key.voicetrans.open_settings": "Abrir ajustes",
+  "screen.voicetrans.settings": "Ajustes de Voice Translate",
+  "screen.voicetrans.spoken": "Idioma que hablas (ej. es, en, fr)",
+  "screen.voicetrans.subtitle": "Idioma a leer (ej. es, en, fr)",
+  "screen.voicetrans.voice": "Subtítulos de voz: %s",
+  "screen.voicetrans.chat": "Traducir chat de texto: %s",
+  "screen.voicetrans.textColor": "Color del texto (hex RGB, ej. FFFFFF)",
+  "screen.voicetrans.bgColor": "Fondo (hex ARGB, ej. 40000000)"
+}

@@ -1,0 +1,25 @@
+# Example systemd unit for the sidecar on the VPS.
+# Install: copy to /etc/systemd/system/mc-voicetrans-sidecar.service, edit paths, then:
+#   systemctl daemon-reload && systemctl enable --now mc-voicetrans-sidecar
+#
+# Keys go in an EnvironmentFile like the Crafty helpers' /etc/mcserver/*.env (chmod 600 root):
+#   VOICETRANS_MOCK=0
+#   GOOGLE_STT_API_KEY=...        # API key restricted to "Cloud Speech-to-Text API"
+#   DEEPL_AUTH_KEY=...            # ends with :fx for the Free plan
+# (Alternatively: GOOGLE_APPLICATION_CREDENTIALS=/etc/mcserver/google-stt.json)
+[Unit]
+Description=Voice Translate sidecar (STT + translation) for summerBuddies
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/voicetrans-sidecar
+EnvironmentFile=/etc/mcserver/voicetrans.env
+ExecStart=/opt/voicetrans-sidecar/.venv/bin/uvicorn app:app --host 127.0.0.1 --port 8200
+Restart=on-failure
+RestartSec=3
+# Bound to localhost only — never expose 8200 publicly.
+
+[Install]
+WantedBy=multi-user.target

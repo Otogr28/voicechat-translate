@@ -1,0 +1,35 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+# Files from Forge MDK
+forge*changelog.txt
+
+# sidecar (python)
+sidecar/.venv
+sidecar/__pycache__
+**/__pycache__
+*.pyc
+# never commit cloud credentials
+*.env
+google-stt.json
+libs/
